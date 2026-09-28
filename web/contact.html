@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Velora Tech Solutions</title>
+<meta name="description" content="Start a project with Velora Tech Solutions. Let's build something extraordinary together.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230066cc'/><text x='6' y='23' font-size='20' font-family='sans-serif' font-weight='bold' fill='white'>V</text></svg>">
+<style>
+.faq-item{border-bottom:1px solid var(--gray-200);overflow:hidden}
+body.dark .faq-item{border-bottom-color:#222}
+.faq-question{width:100%;background:none;border:none;text-align:left;padding:24px 0;font-size:17px;font-weight:600;color:var(--gray-900);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;gap:16px;transition:color .2s}
+body.dark .faq-question{color:#f5f5f7}
+.faq-question:hover{color:var(--accent-blue)}
+.faq-icon{font-size:20px;font-weight:300;min-width:20px;text-align:center;transition:transform .3s}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-answer p{font-size:15px;color:var(--gray-600);line-height:1.65;padding-bottom:24px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-item.open .faq-answer{max-height:200px}
+.contact-option-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:60px}
+.contact-option{padding:32px;border-radius:20px;background:var(--gray-100);text-align:center;transition:transform .3s,box-shadow .3s}
+body.dark .contact-option{background:#111}
+.contact-option:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.contact-option-icon{font-size:32px;margin-bottom:16px;display:block}
+.contact-option h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:8px}
+body.dark .contact-option h4{color:#f5f5f7}
+.contact-option a,.contact-option p{font-size:14px;color:var(--accent-blue);text-decoration:none}
+select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2386868b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-inner"><div class="loader-logo">Velora Tech Solutions</div><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="services.html" onclick="closeMobileNav()">Services</a>
+  <a href="portfolio.html" onclick="closeMobileNav()">Portfolio</a>
+  <a href="internship.html" onclick="closeMobileNav()">Internships</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="internship.html" class="nav-link">Internships</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn-nav">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero" style="background:linear-gradient(135deg,#000 0%,#0a0a1a 100%);color:#fff">
+  <p class="page-hero-label reveal" style="color:rgba(255,255,255,.5)">Let's Connect</p>
+  <h1 class="page-hero-title reveal reveal-delay-1" style="color:#fff">Start building<br><span style="background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent">something great.</span></h1>
+  <p class="page-hero-sub reveal reveal-delay-2" style="color:rgba(255,255,255,.55)">Tell us about your project. We respond within 24 hours.</p>
+</div>
+
+<section>
+  <div class="section-inner">
+    <!-- CONTACT OPTIONS -->
+    <div class="contact-option-grid">
+      <div class="contact-option reveal">
+        <span class="contact-option-icon">📧</span>
+        <h4>Email Us</h4>
+        <a href="mailto:veloratechsolutions.gov@gmail.com">veloratechsolutions.gov@gmail.com</a>
+      </div>
+      <div class="contact-option reveal reveal-delay-1">
+        <span class="contact-option-icon">📞</span>
+        <h4>Call Us</h4>
+        <a href="tel:+917094614360">+91 70946 14360</a>
+      </div>
+      <div class="contact-option reveal reveal-delay-2">
+        <span class="contact-option-icon">💬</span>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/917094614360" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-option reveal reveal-delay-3">
+        <span class="contact-option-icon">📍</span>
+        <h4>Office</h4>
+        <p>Salem, Tamil Nadu, India</p>
+      </div>
+    </div>
+
+    <!-- MAIN CONTACT GRID -->
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="section-label reveal">Get In Touch</p>
+        <h2 class="section-title reveal reveal-delay-1" style="font-size:clamp(28px,4vw,48px)">We'd love to hear<br>from you.</h2>
+        <p class="reveal reveal-delay-2">Whether you have a fully-formed project brief or just a rough idea — we're here to help you shape it into something remarkable.</p>
+
+        <div style="margin-top:40px" class="reveal reveal-delay-3">
+          <p style="font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:16px">Response Time</p>
+          <p style="font-size:15px;color:var(--gray-600)">We respond to all inquiries within <strong style="color:var(--gray-900)">24 hours</strong>, usually much faster.</p>
+        </div>
+
+        <div style="margin-top:32px" class="reveal reveal-delay-4">
+          <p style="font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:16px">Office Hours</p>
+          <p style="font-size:15px;color:var(--gray-600)">Monday – Friday, 9am – 7pm IST<br>Weekend support for active projects</p>
+        </div>
+
+        <div style="margin-top:40px" class="reveal reveal-delay-5">
+          <p style="font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:16px">Follow Us</p>
+          <div class="social-links">
+            <a href="https://x.com/Veloratech_cbe" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">𝕏</a>
+            <a href="https://www.linkedin.com/in/velora-tech-solutions-265816410/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+            
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="reveal reveal-delay-2">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required autocomplete="given-name">
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required autocomplete="family-name">
+          </div>
+          <input type="email" id="email" name="email" placeholder="Email Address" required autocomplete="email">
+          <input type="text" id="company" name="company" placeholder="Company / Organization" autocomplete="organization">
+          <select id="service" name="service">
+            <option value="" disabled selected>What can we help with?</option>
+            <option value="ai">AI Automation</option>
+            <option value="saas">SaaS Development</option>
+            <option value="web">Website Design</option>
+            <option value="mobile">Mobile App</option>
+            <option value="branding">Branding & UI/UX</option>
+            <option value="chatbot">AI Chatbot</option>
+            <option value="internship">Internship Program</option>
+            <option value="other">Something Else</option>
+          </select>
+          <select id="internshipDomain" name="internshipDomain" style="display: none;">
+            <option value="" disabled selected>Select Internship Domain</option>
+            <option value="web">Full-Stack Web Development</option>
+            <option value="ai">AI & Machine Learning Engineering</option>
+            <option value="mobile">Mobile App Development</option>
+            <option value="design">UI/UX & Product Design</option>
+            <option value="cloud">SaaS & Cloud Architecture</option>
+          </select>
+          <select id="budget" name="budget">
+            <option value="" disabled selected>Project Budget</option>
+            <option value="Under ₹50,000">Under ₹50,000</option>
+            <option value="₹50,000 – ₹2,00,000">₹50,000 – ₹2,00,000</option>
+            <option value="₹2,00,000 – ₹10,00,000">₹2,00,000 – ₹10,00,000</option>
+            <option value="₹10,00,000+">₹10,00,000+</option>
+          </select>
+          <textarea id="message" name="message" placeholder="Tell us about your project — the more detail, the better." required></textarea>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-alt">
+  <div class="section-inner">
+    <p class="section-label reveal text-center">FAQ</p>
+    <h2 class="section-title text-center reveal reveal-delay-1">Common questions.</h2>
+    <div style="max-width:720px;margin:48px auto 0">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          How long does a typical project take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Most projects range from 6–16 weeks depending on complexity. A landing website might take 3–4 weeks, while a full SaaS platform typically runs 12–20 weeks. We'll give you a detailed timeline after our discovery call.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" aria-expanded="false">
+          Do you work with early-stage startups?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. We love working with founders at the idea stage — when the right design and technical decisions can define the company's trajectory. We offer startup-friendly packages and milestone-based pricing.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" aria-expanded="false">
+          What's your engagement model?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We offer three models: fixed-scope projects, time-and-materials engagements, and dedicated team embeds. We'll recommend the best fit based on your project stage and budget in our initial consultation.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-question" aria-expanded="false">
+          Do you provide ongoing support after launch?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Every project includes a 30-day post-launch support window at no extra cost. We also offer monthly retainer plans for ongoing feature development, maintenance, and scaling support.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-4">
+        <button class="faq-question" aria-expanded="false">
+          What technologies do you specialize in?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Our core stack includes React/Next.js, Node.js, Python (FastAPI/Django), React Native, Swift, Kotlin, PostgreSQL, and AWS/GCP. On the AI side: OpenAI, Anthropic, Hugging Face, LangChain, and custom PyTorch models.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+        <p>Crafting intelligent, elegant digital experiences for the next era of technology.</p>
+        <div class="social-links" style="margin-top:24px">
+          <a href="https://x.com/Veloratech_cbe" class="social-link" target="_blank" rel="noopener noreferrer">𝕏</a><a href="https://www.linkedin.com/in/velora-tech-solutions-265816410/" class="social-link" target="_blank" rel="noopener noreferrer">in</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html#ai">AI Automation</a></li><li><a href="services.html#saas">SaaS Development</a></li><li><a href="services.html#web">Website Design</a></li><li><a href="services.html#mobile">Mobile Apps</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="internship.html">Careers & Internships</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="mailto:veloratechsolutions.gov@gmail.com">veloratechsolutions.gov@gmail.com</a></li><li><a href="tel:+917094614360">+91 70946 14360</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025-2026 Velora Tech Solutions. All rights reserved.</p>
+      <p style="font-size:13px;color:var(--gray-400)">Crafted with precision.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="notification" id="notification">✓ Message sent! We'll be in touch soon.</div>
+
+<script src="main.js" defer></script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services — Velora Tech Solutions</title>
+<meta name="description" content="Explore Velora Tech Solutions' full range of services: AI Automation, SaaS Development, Website Design, Mobile Apps, Branding & UI/UX, and AI Chatbots.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230066cc'/><text x='6' y='23' font-size='20' font-family='sans-serif' font-weight='bold' fill='white'>V</text></svg>">
+<style>
+.service-hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2px;background:var(--gray-200);border-radius:24px;overflow:hidden;margin-top:64px}
+body.dark .service-hero-grid{background:#1a1a1a}
+.service-hero-card{background:var(--white);padding:56px 48px;cursor:pointer;transition:background .3s}
+body.dark .service-hero-card{background:#111}
+.service-hero-card:hover{background:var(--gray-50)}
+body.dark .service-hero-card:hover{background:#1a1a1a}
+.service-big-icon{font-size:48px;margin-bottom:28px;display:block}
+.service-hero-title{font-size:26px;font-weight:700;letter-spacing:-.5px;margin-bottom:12px;color:var(--gray-900)}
+body.dark .service-hero-title{color:#f5f5f7}
+.service-hero-desc{font-size:16px;color:var(--gray-600);line-height:1.65;margin-bottom:24px}
+.service-features{list-style:none;display:flex;flex-direction:column;gap:10px}
+.service-features li{font-size:14px;color:var(--gray-600);display:flex;align-items:center;gap:10px}
+.service-features li::before{content:"✓";color:var(--accent-blue);font-weight:700;font-size:12px}
+body.dark .service-features li{color:#86868b}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;background:var(--gray-200);border-radius:24px;overflow:hidden;margin-top:64px;counter-reset:step}
+body.dark .process-grid{background:#1a1a1a}
+.process-step{background:var(--white);padding:48px 36px;counter-increment:step;position:relative}
+body.dark .process-step{background:#111}
+.process-step::before{content:counter(step, decimal-leading-zero);font-size:48px;font-weight:800;background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;margin-bottom:16px;line-height:1}
+.process-title{font-size:18px;font-weight:600;margin-bottom:10px;color:var(--gray-900)}
+body.dark .process-title{color:#f5f5f7}
+.process-desc{font-size:14px;color:var(--gray-600);line-height:1.6}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Velora Tech Solutions</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="services.html" onclick="closeMobileNav()">Services</a>
+  <a href="portfolio.html" onclick="closeMobileNav()">Portfolio</a>
+  <a href="internship.html" onclick="closeMobileNav()">Internships</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link active">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="internship.html" class="nav-link">Internships</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn-nav">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="background:linear-gradient(135deg,#000 0%,#0a0a1a 100%);color:#fff">
+  <p class="page-hero-label reveal" style="color:rgba(255,255,255,.5)">What We Do</p>
+  <h1 class="page-hero-title reveal reveal-delay-1" style="color:#fff">Services built for<br><span style="background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent">the impossible.</span></h1>
+  <p class="page-hero-sub reveal reveal-delay-2" style="color:rgba(255,255,255,.55)">Six specializations. One relentless commitment to excellence.</p>
+</div>
+
+<!-- SERVICES DETAILED -->
+<section id="ai">
+  <div class="section-inner">
+    <div class="service-hero-grid">
+      <div class="service-hero-card reveal" id="ai">
+        <span class="service-big-icon">🤖</span>
+        <h2 class="service-hero-title">AI Automation</h2>
+        <p class="service-hero-desc">We design and build intelligent automation systems that learn, adapt, and operate autonomously — freeing your team to focus on what matters most.</p>
+        <ul class="service-features">
+          <li>Custom ML Model Development</li>
+          <li>Data Pipeline Architecture</li>
+          <li>Intelligent Document Processing</li>
+          <li>Predictive Analytics Systems</li>
+          <li>LLM Integration & Fine-tuning</li>
+        </ul>
+      </div>
+
+      <div class="service-hero-card reveal reveal-delay-1" id="saas">
+        <span class="service-big-icon">⚡</span>
+        <h2 class="service-hero-title">SaaS Development</h2>
+        <p class="service-hero-desc">From MVP to enterprise-grade platform — we architect scalable, multi-tenant SaaS products that grow with your business.</p>
+        <ul class="service-features">
+          <li>Full-Stack Web Development</li>
+          <li>Multi-tenant Architecture</li>
+          <li>Subscription & Billing Systems</li>
+          <li>API Design & Integration</li>
+          <li>Cloud Infrastructure (AWS/GCP/Azure)</li>
+        </ul>
+      </div>
+
+      <div class="service-hero-card reveal reveal-delay-2" id="web">
+        <span class="service-big-icon">🎨</span>
+        <h2 class="service-hero-title">Website Design</h2>
+        <p class="service-hero-desc">Premium web experiences that communicate value, build trust, and convert visitors into customers. Every pixel considered.</p>
+        <ul class="service-features">
+          <li>Brand Identity & Visual Design</li>
+          <li>Landing Pages & Marketing Sites</li>
+          <li>E-commerce Experiences</li>
+          <li>Performance Optimization</li>
+          <li>SEO & Analytics Integration</li>
+        </ul>
+      </div>
+
+      <div class="service-hero-card reveal" id="mobile">
+        <span class="service-big-icon">📱</span>
+        <h2 class="service-hero-title">Mobile Apps</h2>
+        <p class="service-hero-desc">Native iOS and Android applications with fluid animations, intuitive interactions, and exceptional performance that users will love.</p>
+        <ul class="service-features">
+          <li>iOS (Swift/SwiftUI) Development</li>
+          <li>Android (Kotlin/Jetpack) Development</li>
+          <li>Cross-platform (React Native/Flutter)</li>
+          <li>App Store Optimization</li>
+          <li>Push Notifications & Analytics</li>
+        </ul>
+      </div>
+
+      <div class="service-hero-card reveal reveal-delay-1" id="branding">
+        <span class="service-big-icon">✦</span>
+        <h2 class="service-hero-title">Branding & UI/UX</h2>
+        <p class="service-hero-desc">We craft visual identities and digital interfaces that feel premium, purposeful, and instantly recognizable as yours.</p>
+        <ul class="service-features">
+          <li>Logo & Brand System Design</li>
+          <li>User Research & Personas</li>
+          <li>Wireframing & Prototyping</li>
+          <li>Design System Creation</li>
+          <li>Usability Testing</li>
+        </ul>
+      </div>
+
+      <div class="service-hero-card reveal reveal-delay-2" id="chatbots">
+        <span class="service-big-icon">💬</span>
+        <h2 class="service-hero-title">AI Chatbots</h2>
+        <p class="service-hero-desc">Conversational AI experiences trained on your data, aligned to your brand voice, and capable of handling complex customer interactions.</p>
+        <ul class="service-features">
+          <li>GPT-4 / Claude Integration</li>
+          <li>Custom Knowledge Base Training</li>
+          <li>Omnichannel Deployment</li>
+          <li>Human Handoff Logic</li>
+          <li>Analytics & Conversation Insights</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-alt">
+  <div class="section-inner">
+    <p class="section-label reveal text-center">Our Process</p>
+    <h2 class="section-title text-center reveal reveal-delay-1">How we work.</h2>
+    <p class="section-sub text-center reveal reveal-delay-2">A refined, battle-tested process honed across 150+ projects.</p>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-title">Discovery</div>
+        <p class="process-desc">Deep dive into your goals, users, and constraints. We ask the hard questions before writing a single line of code.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-title">Strategy</div>
+        <p class="process-desc">We define the technical architecture, design direction, and project roadmap — a clear blueprint for success.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-title">Design</div>
+        <p class="process-desc">High-fidelity prototypes that you can click through and validate before any development begins.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-title">Build</div>
+        <p class="process-desc">Iterative development with weekly demos. You're never in the dark about progress.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-title">Launch</div>
+        <p class="process-desc">Rigorous QA, performance tuning, and a smooth deployment. We ship when it's truly ready.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-5">
+        <div class="process-title">Scale</div>
+        <p class="process-desc">Post-launch support, monitoring, and continuous improvements to help your product grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div style="position:relative;z-index:2">
+    <h2 class="cta-title reveal">Have a project in mind?</h2>
+    <p class="cta-sub reveal reveal-delay-1">Tell us what you're building. We'll tell you how to make it extraordinary.</p>
+    <a href="contact.html" class="btn-primary reveal reveal-delay-2">Start the Conversation →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+        <p>Crafting intelligent, elegant digital experiences for the next era of technology.</p>
+        <div class="social-links" style="margin-top:24px">
+          <a href="https://x.com/Veloratech_cbe" class="social-link" target="_blank" rel="noopener noreferrer">𝕏</a>
+          <a href="https://www.linkedin.com/in/velora-tech-solutions-265816410/" class="social-link" target="_blank" rel="noopener noreferrer">in</a>
+          
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="#ai">AI Automation</a></li>
+          <li><a href="#saas">SaaS Development</a></li>
+          <li><a href="#web">Website Design</a></li>
+          <li><a href="#mobile">Mobile Apps</a></li>
+          <li><a href="#branding">Branding & UI/UX</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="internship.html">Careers & Internships</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:veloratechsolutions.gov@gmail.com">veloratechsolutions.gov@gmail.com</a></li>
+          <li><a href="tel:+917094614360">+91 70946 14360</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025-2026 Velora Tech Solutions. All rights reserved.</p>
+      <p style="font-size:13px;color:var(--gray-400)">Crafted with precision.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="notification" id="notification"></div>
+<script src="main.js" defer></script>
+</body>
+</html>
