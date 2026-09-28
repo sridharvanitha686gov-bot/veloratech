@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Internships & Courses — Velora Tech Solutions</title>
+<meta name="description" content="Launch your career with Velora Tech Solutions. Explore our hands-on internship programs and courses in Web Development, AI, Mobile Apps, UI/UX, and SaaS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230066cc'/><text x='6' y='23' font-size='20' font-family='sans-serif' font-weight='bold' fill='white'>V</text></svg>">
+<style>
+  .internship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    margin: 64px 0;
+  }
+  .internship-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 24px;
+    padding: 36px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+  }
+  body.dark .internship-card {
+    background: #111;
+    border-color: #222;
+  }
+  .internship-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    border-color: var(--accent-blue);
+  }
+  body.dark .internship-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-color: var(--accent-purple);
+  }
+  .internship-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  .internship-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .internship-duration {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 102, 204, 0.08);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  body.dark .internship-duration {
+    color: #4da3ff;
+    background: rgba(77, 163, 255, 0.1);
+  }
+  .internship-level {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+  .internship-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    line-height: 1.25;
+    color: var(--gray-900);
+  }
+  body.dark .internship-card-title {
+    color: #fff;
+  }
+  .internship-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  body.dark .internship-desc {
+    color: var(--gray-400);
+  }
+  
+  /* Accordion curriculum styling */
+  .curriculum-accordion {
+    border-top: 1px solid var(--gray-200);
+    margin-bottom: 28px;
+    padding-top: 16px;
+  }
+  body.dark .curriculum-accordion {
+    border-top-color: #222;
+  }
+  .curriculum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-900);
+    user-select: none;
+    transition: color 0.2s;
+  }
+  body.dark .curriculum-header {
+    color: #f5f5f7;
+  }
+  .curriculum-header:hover {
+    color: var(--accent-blue);
+  }
+  body.dark .curriculum-header:hover {
+    color: #4da3ff;
+  }
+  .curriculum-arrow {
+    transition: transform 0.2s;
+    font-size: 10px;
+  }
+  .curriculum-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+    opacity: 0;
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    margin-top: 12px;
+  }
+  body.dark .curriculum-content {
+    color: var(--gray-400);
+  }
+  .curriculum-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .curriculum-content li {
+    position: relative;
+    padding-left: 16px;
+  }
+  .curriculum-content li::before {
+    content: "•";
+    color: var(--accent-blue);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  body.dark .curriculum-content li::before {
+    color: var(--accent-purple);
+  }
+  .curriculum-accordion.open .curriculum-content {
+    max-height: 300px;
+    opacity: 1;
+  }
+  .curriculum-accordion.open .curriculum-arrow {
+    transform: rotate(90deg);
+  }
+  
+  /* Apply Button */
+  .btn-apply-card {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    background: var(--gray-900);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    display: inline-block;
+  }
+  body.dark .btn-apply-card {
+    background: #222;
+    color: #fff;
+  }
+  .btn-apply-card:hover {
+    background: var(--accent-blue);
+    transform: scale(1.02);
+  }
+  body.dark .btn-apply-card:hover {
+    background: var(--accent-purple);
+  }
+
+  /* FAQ block */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .faq-item {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 20px;
+    padding: 28px;
+  }
+  body.dark .faq-item {
+    background: #111;
+    border-color: #222;
+  }
+  .faq-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .faq-item p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  body.dark .faq-item p {
+    color: var(--gray-400);
+  }
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-inner"><div class="loader-logo">Velora Tech Solutions</div><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="services.html" onclick="closeMobileNav()">Services</a>
+  <a href="portfolio.html" onclick="closeMobileNav()">Portfolio</a>
+  <a href="internship.html" onclick="closeMobileNav()">Internships</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="internship.html" class="nav-link active">Internships</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn-nav">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="background:linear-gradient(135deg,#000 0%,#0a0a1a 100%);color:#fff">
+  <p class="page-hero-label reveal" style="color:rgba(255,255,255,.5)">Careers & Internships</p>
+  <h1 class="page-hero-title reveal reveal-delay-1" style="color:#fff">Launch your career with<br><span style="background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Velora Tech Solutions</span></h1>
+  <p class="page-hero-sub reveal reveal-delay-2" style="color:rgba(255,255,255,.55)">Gain real-world experience, build premium projects, and master modern stacks under the guidance of senior engineers.</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    
+    <div class="section-header">
+      <h2 class="section-title reveal">Available Domains</h2>
+      <p class="section-sub reveal reveal-delay-1">Select a program to view its weekly curriculum. Apply directly to your chosen domain.</p>
+    </div>
+
+    <div class="internship-grid">
+      
+      <!-- Card 1: Web Dev -->
+      <div class="internship-card reveal">
+        <span class="internship-icon">💻</span>
+        <div class="internship-meta">
+          <span class="internship-duration">8 Weeks</span>
+          <span class="internship-level">Intermediate</span>
+        </div>
+        <h3 class="internship-card-title">Full-Stack Web Development</h3>
+        <p class="internship-desc">Learn to engineer professional web solutions with responsive layouts, API servers, and database integration using Next.js, Flask, and PostgreSQL.</p>
+        
+        <div class="curriculum-accordion">
+          <div class="curriculum-header" onclick="toggleAccordion(this)">
+            <span>View Syllabus</span>
+            <span class="curriculum-arrow">▶</span>
+          </div>
+          <div class="curriculum-content">
+            <ul>
+              <li><strong>Week 1-2:</strong> Advanced HTML5, HSL/CSS variables, Grid/Flexbox layouts & ES6+ Javascript structure.</li>
+              <li><strong>Week 3-4:</strong> Frontend frameworks (React, Vite, Next.js) and state management systems.</li>
+              <li><strong>Week 5-6:</strong> Backends (Node.js/Express, Python/Flask), HTTP verbs, RESTful APIs, and database modeling.</li>
+              <li><strong>Week 7-8:</strong> Production deployment (Vercel, Render), environment configurations, and final Capstone reviews.</li>
+            </ul>
+          </div>
+        </div>
+        <a href="contact.html?service=internship&course=web" class="btn-apply-card">Apply for Web Dev →</a>
+      </div>
+
+      <!-- Card 2: AI & ML -->
+      <div class="internship-card reveal reveal-delay-1">
+        <span class="internship-icon">🧠</span>
+        <div class="internship-meta">
+          <span class="internship-duration">12 Weeks</span>
+          <span class="internship-level">Advanced</span>
+        </div>
+        <h3 class="internship-card-title">AI & Machine Learning</h3>
+        <p class="internship-desc">Integrate LLMs, construct cognitive AI agents, and build automations using LangChain, OpenAI APIs, Vector Databases, and PyTorch.</p>
+        
+        <div class="curriculum-accordion">
+          <div class="curriculum-header" onclick="toggleAccordion(this)">
+            <span>View Syllabus</span>
+            <span class="curriculum-arrow">▶</span>
+          </div>
+          <div class="curriculum-content">
+            <ul>
+              <li><strong>Week 1-3:</strong> Deep dive into NumPy, Pandas, Scikit-Learn data science pipelines, and ML models.</li>
+              <li><strong>Week 4-6:</strong> Neural Networks, PyTorch framework foundations, and custom model evaluation processes.</li>
+              <li><strong>Week 7-9:</strong> Prompt Engineering, OpenAI/Claude APIs, and context injection using Pinecone RAG databases.</li>
+              <li><strong>Week 10-12:</strong> Building conversational AI agents, pipeline optimizers, and automated workflow orchestrators.</li>
+            </ul>
+          </div>
+        </div>
+        <a href="contact.html?service=internship&course=ai" class="btn-apply-card">Apply for AI & ML →</a>
+      </div>
+
+      <!-- Card 3: Mobile Apps -->
+      <div class="internship-card reveal reveal-delay-2">
+        <span class="internship-icon">📱</span>
+        <div class="internship-meta">
+          <span class="internship-duration">8 Weeks</span>
+          <span class="internship-level">Intermediate</span>
+        </div>
+        <h3 class="internship-card-title">Mobile App Development</h3>
+        <p class="internship-desc">Design and assemble native cross-platform mobile apps for iOS and Android platforms using React Native, Expo, and Firebase services.</p>
+        
+        <div class="curriculum-accordion">
+          <div class="curriculum-header" onclick="toggleAccordion(this)">
+            <span>View Syllabus</span>
+            <span class="curriculum-arrow">▶</span>
+          </div>
+          <div class="curriculum-content">
+            <ul>
+              <li><strong>Week 1-2:</strong> React Native core components, styling systems, and responsive viewport design.</li>
+              <li><strong>Week 3-4:</strong> Navigation systems (React Navigation), state stores, and local cache databases.</li>
+              <li><strong>Week 5-6:</strong> Native features integration (Camera, Geolocation, Device storage, Push alerts).</li>
+              <li><strong>Week 7-8:</strong> Authentication, cloud functions, offline sync, and App Store/Play Store delivery.</li>
+            </ul>
+          </div>
+        </div>
+        <a href="contact.html?service=internship&course=mobile" class="btn-apply-card">Apply for Mobile Dev →</a>
+      </div>
+
+      <!-- Card 4: UI/UX -->
+      <div class="internship-card reveal">
+        <span class="internship-icon">🎨</span>
+        <div class="internship-meta">
+          <span class="internship-duration">6 Weeks</span>
+          <span class="internship-level">Beginner-Friendly</span>
+        </div>
+        <h3 class="internship-card-title">UI/UX & Product Design</h3>
+        <p class="internship-desc">Master the art of creating premium, fluid digital interfaces. Learn Figma systems, typography, color harmony, and micro-interactions.</p>
+        
+        <div class="curriculum-accordion">
+          <div class="curriculum-header" onclick="toggleAccordion(this)">
+            <span>View Syllabus</span>
+            <span class="curriculum-arrow">▶</span>
+          </div>
+          <div class="curriculum-content">
+            <ul>
+              <li><strong>Week 1-2:</strong> Design theories, grid systems, high-end typography rules, and color palettes.</li>
+              <li><strong>Week 3-4:</strong> Figma components, Auto-layout systems, variables, and scalable design libraries.</li>
+              <li><strong>Week 5-6:</strong> Interactive prototyping, micro-animations, user testing, and developer handoff guidelines.</li>
+            </ul>
+          </div>
+        </div>
+        <a href="contact.html?service=internship&course=design" class="btn-apply-card">Apply for UI/UX →</a>
+      </div>
+
+      <!-- Card 5: Cloud Architecture -->
+      <div class="internship-card reveal reveal-delay-1">
+        <span class="internship-icon">☁️</span>
+        <div class="internship-meta">
+          <span class="internship-duration">10 Weeks</span>
+          <span class="internship-level">Advanced</span>
+        </div>
+        <h3 class="internship-card-title">SaaS & Cloud Architecture</h3>
+        <p class="internship-desc">Architect scalable systems with container orchestration, CI/CD pipelines, and cloud services using AWS, Docker, and Kubernetes.</p>
+        
+        <div class="curriculum-accordion">
+          <div class="curriculum-header" onclick="toggleAccordion(this)">
+            <span>View Syllabus</span>
+            <span class="curriculum-arrow">▶</span>
+          </div>
+          <div class="curriculum-content">
+            <ul>
+              <li><strong>Week 1-3:</strong> Linux administration systems, Docker containerization, and networking configs.</li>
+              <li><strong>Week 4-6:</strong> Core AWS environments (EC2, S3, RDS, IAM) and Infrastructure-as-Code (Terraform).</li>
+              <li><strong>Week 7-8:</strong> Automation pipelines (GitHub Actions), container deployment (ECS, Kubernetes).</li>
+              <li><strong>Week 9-10:</strong> Microservices design patterns, logging monitoring systems (Prometheus, ELK).</li>
+            </ul>
+          </div>
+        </div>
+        <a href="contact.html?service=internship&course=cloud" class="btn-apply-card">Apply for Cloud Dev →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title reveal">Frequently Asked Questions</h2>
+      <p class="section-sub reveal reveal-delay-1">Common inquiries about our training and internship program.</p>
+    </div>
+    
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h3>Are the internships remote, hybrid, or in-person?</h3>
+        <p>Our programs are flexible. We support remote collaboration for all interns, with opportunities for local hybrid meetups depending on your location.</p>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <h3>Do I receive a certificate upon completion?</h3>
+        <p>Yes. Upon successful completion of all core deliverables and your capstone project, you will receive an official Internship Certificate and a letter of recommendation from Velora Tech Solutions.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Is prior coding experience required?</h3>
+        <p>For beginner courses like UI/UX Design, basic computer literacy is enough. For advanced paths like AI or SaaS architecture, basic programming foundations (Python/JS) are highly recommended.</p>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <h3>How does the selection process work?</h3>
+        <p>Once you submit your application through the contact form, our team reviews your profile and background. Selected applicants are scheduled for a brief technical discussion to align you with a suitable cohort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div style="position:relative;z-index:2">
+    <h2 class="cta-title reveal">Start your journey.</h2>
+    <p class="cta-sub reveal reveal-delay-1">Applications are open for the upcoming summer cohort. Secure your spot today.</p>
+    <a href="contact.html?service=internship" class="btn-primary reveal reveal-delay-2">Apply for Internship →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+        <p>Crafting intelligent, elegant digital experiences for the next era of technology.</p>
+        <div class="social-links" style="margin-top:24px">
+          <a href="https://x.com/Veloratech_cbe" class="social-link" target="_blank" rel="noopener noreferrer">𝕏</a><a href="https://www.linkedin.com/in/velora-tech-solutions-265816410/" class="social-link" target="_blank" rel="noopener noreferrer">in</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html#ai">AI Automation</a></li><li><a href="services.html#saas">SaaS Development</a></li><li><a href="services.html#web">Website Design</a></li><li><a href="services.html#mobile">Mobile Apps</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="internship.html">Careers & Internships</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="mailto:veloratechsolutions.gov@gmail.com">veloratechsolutions.gov@gmail.com</a></li><li><a href="tel:+917094614360">+91 70946 14360</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025-2026 Velora Tech Solutions. All rights reserved.</p>
+      <p style="font-size:13px;color:var(--gray-400)">Crafted with precision.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+<script>
+  function toggleAccordion(header) {
+    const accordion = header.parentElement;
+    
+    // Close other accordions in the same grid if open (optional, keeps layout clean)
+    const card = accordion.closest('.internship-card');
+    card.querySelectorAll('.curriculum-accordion').forEach(acc => {
+      if (acc !== accordion) {
+        acc.classList.remove('open');
+      }
+    });
+
+    accordion.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

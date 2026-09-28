@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio — Velora Tech Solutions</title>
+<meta name="description" content="Explore our portfolio of premium digital products — AI platforms, SaaS applications, mobile apps, and brand experiences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230066cc'/><text x='6' y='23' font-size='20' font-family='sans-serif' font-weight='bold' fill='white'>V</text></svg>">
+<style>
+.filter-bar{display:flex;gap:8px;justify-content:center;margin-bottom:56px;flex-wrap:wrap}
+.filter-btn{font-size:14px;font-weight:500;padding:8px 20px;border-radius:980px;border:1px solid var(--gray-200);background:transparent;cursor:pointer;color:var(--gray-600);transition:all .2s;font-family:'Inter',sans-serif}
+.filter-btn:hover,.filter-btn.active{background:var(--gray-900);color:#fff;border-color:var(--gray-900)}
+body.dark .filter-btn{border-color:#333;color:#86868b}
+body.dark .filter-btn:hover,body.dark .filter-btn.active{background:#fff;color:#000;border-color:#fff}
+.portfolio-full-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}
+.portfolio-card-lg{border-radius:24px;overflow:hidden;background:var(--gray-100);cursor:pointer;transition:transform .4s,box-shadow .4s;position:relative}
+body.dark .portfolio-card-lg{background:#111}
+.portfolio-card-lg:hover{transform:translateY(-10px);box-shadow:0 40px 80px rgba(0,0,0,.15)}
+.portfolio-card-lg.featured{grid-column:span 2}
+@media(max-width:800px){.portfolio-card-lg.featured{grid-column:span 1}}
+.portfolio-card-lg .portfolio-thumb{aspect-ratio:16/9}
+.portfolio-card-lg.featured .portfolio-thumb{aspect-ratio:21/9}
+.portfolio-meta{padding:28px}
+.portfolio-tags{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.ptag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-blue);background:rgba(0,102,204,.08);padding:3px 10px;border-radius:980px}
+.portfolio-meta h3{font-size:22px;font-weight:700;letter-spacing:-.4px;color:var(--gray-900);margin-bottom:8px}
+body.dark .portfolio-meta h3{color:#f5f5f7}
+.portfolio-meta p{font-size:14px;color:var(--gray-600);line-height:1.55;margin-bottom:16px}
+.portfolio-results{display:flex;gap:24px;flex-wrap:wrap}
+.result-item{text-align:center}
+.result-num{font-size:22px;font-weight:800;background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.result-label{font-size:11px;color:var(--gray-400);margin-top:2px}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-inner"><div class="loader-logo">Velora Tech Solutions</div><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="services.html" onclick="closeMobileNav()">Services</a>
+  <a href="portfolio.html" onclick="closeMobileNav()">Portfolio</a>
+  <a href="internship.html" onclick="closeMobileNav()">Internships</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+      <li><a href="internship.html" class="nav-link">Internships</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn-nav">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero" style="background:linear-gradient(135deg,#000 0%,#0a0a1a 100%);color:#fff">
+  <p class="page-hero-label reveal" style="color:rgba(255,255,255,.5)">Our Work</p>
+  <h1 class="page-hero-title reveal reveal-delay-1" style="color:#fff">Products that<br><span style="background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent">define categories.</span></h1>
+  <p class="page-hero-sub reveal reveal-delay-2" style="color:rgba(255,255,255,.55)">Across 150+ projects, one standard: exceptional.</p>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="ai">AI & Automation</button>
+      <button class="filter-btn" data-filter="saas">SaaS</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <div class="portfolio-full-grid" id="portfolioGrid">
+
+      <div class="portfolio-card-lg featured reveal" data-cat="ai">
+        <div class="portfolio-thumb">
+          <img src="product_ai.png" alt="NeuralFlow" width="1024" height="1024" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
+          <div class="portfolio-overlay"><span class="portfolio-overlay-text">View Case Study →</span></div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tags"><span class="ptag">AI Platform</span><span class="ptag">Featured</span></div>
+          <h3>NeuralFlow — Enterprise AI Operations</h3>
+          <p>A real-time ML pipeline orchestration platform with predictive alerting, model performance dashboards, and automated retraining workflows. Deployed by 3 Fortune 500 companies.</p>
+          <div class="portfolio-results">
+            <div class="result-item"><div class="result-num">87%</div><div class="result-label">Downtime Reduction</div></div>
+            <div class="result-item"><div class="result-num">3.2x</div><div class="result-label">Faster Inference</div></div>
+            <div class="result-item"><div class="result-num">$2.4M</div><div class="result-label">Cost Savings</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card-lg reveal reveal-delay-1" data-cat="saas">
+        <div class="portfolio-thumb">
+          <img src="product_saas.png" alt="CloudSync" width="1024" height="1024" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
+          <div class="portfolio-overlay"><span class="portfolio-overlay-text">View Case Study →</span></div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tags"><span class="ptag">SaaS</span></div>
+          <h3>CloudSync — Team Collaboration Suite</h3>
+          <p>Multi-workspace SaaS platform with real-time collaboration, advanced analytics, and seamless integrations with 50+ tools.</p>
+          <div class="portfolio-results">
+            <div class="result-item"><div class="result-num">12K+</div><div class="result-label">Active Teams</div></div>
+            <div class="result-item"><div class="result-num">99.9%</div><div class="result-label">Uptime SLA</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card-lg reveal" data-cat="mobile">
+        <div class="portfolio-thumb">
+          <img src="product_mobile.png" alt="Lumina" width="1024" height="1024" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
+          <div class="portfolio-overlay"><span class="portfolio-overlay-text">View Case Study →</span></div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tags"><span class="ptag">iOS & Android</span></div>
+          <h3>Lumina — Wellness & Mindfulness App</h3>
+          <p>Award-winning wellness app with guided meditation, sleep tracking, and AI-personalized content. Apple's Editor's Choice.</p>
+          <div class="portfolio-results">
+            <div class="result-item"><div class="result-num">50K+</div><div class="result-label">Month 1 Downloads</div></div>
+            <div class="result-item"><div class="result-num">4.9★</div><div class="result-label">App Store Rating</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card-lg reveal reveal-delay-1" data-cat="ai">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#0a0a2a,#1a0a3a);display:flex;align-items:center;justify-content:center;aspect-ratio:16/9">
+          <span style="font-size:80px">🧠</span>
+          <div class="portfolio-overlay"><span class="portfolio-overlay-text">View Case Study →</span></div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tags"><span class="ptag">AI Chatbot</span></div>
+          <h3>Aria — Conversational AI Platform</h3>
+          <p>Custom LLM-powered customer support agent that handles 80% of queries autonomously with human-level accuracy.</p>
+          <div class="portfolio-results">
+            <div class="result-item"><div class="result-num">80%</div><div class="result-label">Auto-Resolution</div></div>
+            <div class="result-item"><div class="result-num">40%</div><div class="result-label">Cost Reduction</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card-lg reveal" data-cat="design">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#1a0033,#330066);display:flex;align-items:center;justify-content:center;aspect-ratio:16/9">
+          <span style="font-size:80px">✦</span>
+          <div class="portfolio-overlay"><span class="portfolio-overlay-text">View Case Study →</span></div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tags"><span class="ptag">Branding</span><span class="ptag">UI/UX</span></div>
+          <h3>Orbit — FinTech Brand & Design System</h3>
+          <p>Complete brand identity and design system for a Series B fintech startup. 200+ components, 3 brand expressions.</p>
+          <div class="portfolio-results">
+            <div class="result-item"><div class="result-num">200+</div><div class="result-label">Components</div></div>
+            <div class="result-item"><div class="result-num">3x</div><div class="result-label">Faster Design</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card-lg reveal reveal-delay-1" data-cat="saas">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#001a0a,#003320);display:flex;align-items:center;justify-content:center;aspect-ratio:16/9">
+          <span style="font-size:80px">📊</span>
+          <div class="portfolio-overlay"><span class="portfolio-overlay-text">View Case Study →</span></div>
+        </div>
+        <div class="portfolio-meta">
+          <div class="portfolio-tags"><span class="ptag">SaaS</span><span class="ptag">Analytics</span></div>
+          <h3>Prism — Business Intelligence Dashboard</h3>
+          <p>Real-time BI platform with natural language query, predictive insights, and beautiful auto-generated reports.</p>
+          <div class="portfolio-results">
+            <div class="result-item"><div class="result-num">5K+</div><div class="result-label">Users</div></div>
+            <div class="result-item"><div class="result-num">92%</div><div class="result-label">Retention Rate</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div style="position:relative;z-index:2">
+    <h2 class="cta-title reveal">Your project could be next.</h2>
+    <p class="cta-sub reveal reveal-delay-1">We partner with companies that are serious about building something great.</p>
+    <a href="contact.html" class="btn-primary reveal reveal-delay-2">Let's Build Together →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+        <p>Crafting intelligent, elegant digital experiences for the next era of technology.</p>
+        <div class="social-links" style="margin-top:24px">
+          <a href="https://x.com/Veloratech_cbe" class="social-link" target="_blank" rel="noopener noreferrer">𝕏</a>
+          <a href="https://www.linkedin.com/in/velora-tech-solutions-265816410/" class="social-link" target="_blank" rel="noopener noreferrer">in</a>
+          
+          
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html#ai">AI Automation</a></li><li><a href="services.html#saas">SaaS Development</a></li><li><a href="services.html#web">Website Design</a></li><li><a href="services.html#mobile">Mobile Apps</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="internship.html">Careers & Internships</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="mailto:veloratechsolutions.gov@gmail.com">veloratechsolutions.gov@gmail.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025-2026 Velora Tech Solutions. All rights reserved.</p>
+      <p style="font-size:13px;color:var(--gray-400)">Crafted with precision.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="notification" id="notification"></div>
+<script src="main.js" defer></script>
+<script>
+// Portfolio filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.portfolio-card-lg');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      const match = filter === 'all' || card.dataset.cat === filter;
+      card.style.display = match ? '' : 'none';
+    });
+  });
+});
+// Hover zoom on portfolio images
+cards.forEach(card => {
+  const img = card.querySelector('img');
+  if (!img) return;
+  card.addEventListener('mouseenter', () => img.style.transform = 'scale(1.06)');
+  card.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+});
+</script>
+</body>
+</html>

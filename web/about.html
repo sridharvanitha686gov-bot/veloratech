@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — Velora Tech Solutions</title>
+<meta name="description" content="Learn the story behind Velora Tech Solutions — our mission, values, and the team that crafts world-class digital products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230066cc'/><text x='6' y='23' font-size='20' font-family='sans-serif' font-weight='bold' fill='white'>V</text></svg>">
+<style>
+.manifesto{padding:100px 24px;text-align:center;background:var(--gray-900);position:relative;overflow:hidden}
+body.dark .manifesto{background:#050505}
+.manifesto-title{font-size:clamp(28px,5vw,56px);font-weight:700;color:#fff;line-height:1.3;max-width:800px;margin:0 auto;letter-spacing:-.5px}
+.manifesto-title em{font-style:normal;background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:64px}
+.team-card{border-radius:24px;overflow:hidden;background:var(--gray-100);transition:transform .3s,box-shadow .3s}
+body.dark .team-card{background:#111}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,.12)}
+.team-avatar{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:64px;background:linear-gradient(135deg,#0a0a2a,#1a0a3a)}
+.team-info{padding:24px}
+.team-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:4px}
+body.dark .team-name{color:#f5f5f7}
+.team-role{font-size:13px;color:var(--accent-blue);font-weight:500;margin-bottom:10px}
+.team-bio{font-size:14px;color:var(--gray-600);line-height:1.55}
+.timeline{margin-top:64px;position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--gray-200)}
+body.dark .timeline::before{background:#222}
+.timeline-item{position:relative;margin-bottom:48px}
+.timeline-item::before{content:'';position:absolute;left:-28px;top:6px;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#0066cc,#6e40c9)}
+.timeline-year{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-blue);margin-bottom:8px}
+.timeline-title{font-size:20px;font-weight:600;color:var(--gray-900);margin-bottom:8px}
+body.dark .timeline-title{color:#f5f5f7}
+.timeline-desc{font-size:15px;color:var(--gray-600);line-height:1.6}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--gray-200);border-radius:24px;overflow:hidden;margin-top:64px}
+body.dark .mission-grid{background:#1a1a1a}
+@media(max-width:700px){.mission-grid{grid-template-columns:1fr}}
+.mission-card{background:var(--white);padding:48px 36px;text-align:center}
+body.dark .mission-card{background:#111}
+.mission-icon{font-size:40px;margin-bottom:20px;display:block}
+.mission-title{font-size:20px;font-weight:700;color:var(--gray-900);margin-bottom:12px;letter-spacing:-.3px}
+body.dark .mission-title{color:#f5f5f7}
+.mission-desc{font-size:15px;color:var(--gray-600);line-height:1.6}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-inner"><div class="loader-logo">Velora Tech Solutions</div><div class="loader-bar"><div class="loader-fill"></div></div></div></div>
+
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="services.html" onclick="closeMobileNav()">Services</a>
+  <a href="portfolio.html" onclick="closeMobileNav()">Portfolio</a>
+  <a href="internship.html" onclick="closeMobileNav()">Internships</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="internship.html" class="nav-link">Internships</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn-nav">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero" style="background:linear-gradient(135deg,#000 0%,#0a0a1a 100%);color:#fff">
+  <p class="page-hero-label reveal" style="color:rgba(255,255,255,.5)">Our Story</p>
+  <h1 class="page-hero-title reveal reveal-delay-1" style="color:#fff">We build what<br><span style="background:linear-gradient(135deg,#0066cc,#6e40c9);-webkit-background-clip:text;-webkit-text-fill-color:transparent">others only imagine.</span></h1>
+  <p class="page-hero-sub reveal reveal-delay-2" style="color:rgba(255,255,255,.55)">A technology studio obsessed with craft, precision, and impact.</p>
+</div>
+
+<!-- ABOUT STORY -->
+<section>
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="reveal-scale">
+        <img src="about_team.png" alt="Velora Innovation" width="1024" height="1024" decoding="async" style="width:100%;border-radius:24px;aspect-ratio:1;object-fit:cover">
+      </div>
+      <div>
+        <p class="section-label reveal">Who We Are</p>
+        <h2 class="section-title reveal reveal-delay-1">Technology should<br>feel like magic.</h2>
+        <p style="font-size:17px;color:var(--gray-600);line-height:1.7;margin-top:16px" class="reveal reveal-delay-2">
+          Velora Tech Solutions was founded on a simple conviction: that the gap between great technology and great experience shouldn't exist. We're a team of engineers, designers, and AI researchers who believe the best products are born at the intersection of technical excellence and human empathy.
+        </p>
+        <p style="font-size:17px;color:var(--gray-600);line-height:1.7;margin-top:16px" class="reveal reveal-delay-3">
+          We've spent years studying how the world's most beloved products — from Apple's hardware to Stripe's developer experience — achieve the quality they do. We apply those same principles, that same obsession, to every product we build.
+        </p>
+        <div class="values-list" style="margin-top:40px">
+          <div class="value-item reveal reveal-delay-1">
+            <div class="value-icon" style="background:linear-gradient(135deg,#e8f0fe,#c7d9fd)">🎯</div>
+            <div class="value-text">
+              <h4>Relentless Precision</h4>
+              <p>We sweat every detail. Pixel alignment, API response times, error messages — nothing is beneath our attention.</p>
+            </div>
+          </div>
+          <div class="value-item reveal reveal-delay-2">
+            <div class="value-icon" style="background:linear-gradient(135deg,#f0e8fe,#dcc7fd)">🚀</div>
+            <div class="value-text">
+              <h4>Built to Scale</h4>
+              <p>Every architecture decision is made with tomorrow's growth in mind. We build products that last.</p>
+            </div>
+          </div>
+          <div class="value-item reveal reveal-delay-3">
+            <div class="value-icon" style="background:linear-gradient(135deg,#e8fef0,#c7fdd9)">💡</div>
+            <div class="value-text">
+              <h4>Radical Simplicity</h4>
+              <p>Complexity is easy. Simplicity is the hard work. We solve complex problems with elegantly simple solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<div class="manifesto">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <p class="manifesto-title reveal" style="position:relative;z-index:2">
+    "We don't build software.<br>We build <em>futures</em> — tools that change<br>how people work, create, and connect."
+  </p>
+</div>
+
+<!-- MISSION -->
+<section class="section-alt">
+  <div class="section-inner">
+    <p class="section-label reveal text-center">Our Mission</p>
+    <h2 class="section-title text-center reveal reveal-delay-1">Three principles.<br>Everything we do.</h2>
+    <div class="mission-grid">
+      <div class="mission-card reveal">
+        <span class="mission-icon">🌍</span>
+        <h3 class="mission-title">Global Impact</h3>
+        <p class="mission-desc">We measure success not just in revenue, but in the real-world change our products create for the people who use them.</p>
+      </div>
+      <div class="mission-card reveal reveal-delay-1">
+        <span class="mission-icon">⚗️</span>
+        <h3 class="mission-title">Relentless Innovation</h3>
+        <p class="mission-desc">We stay at the frontier of AI, design, and engineering — not to impress, but because our clients deserve the best available.</p>
+      </div>
+      <div class="mission-card reveal reveal-delay-2">
+        <span class="mission-icon">🤝</span>
+        <h3 class="mission-title">Genuine Partnership</h3>
+        <p class="mission-desc">We're not vendors. We're partners. Your goals become our goals, your constraints our creative challenge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section>
+  <div class="section-inner">
+    <p class="section-label reveal text-center">The Team</p>
+    <h2 class="section-title text-center reveal reveal-delay-1">Built by the best,<br>for the boldest.</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">👨‍💻</div>
+        <div class="team-info">
+          <h3 class="team-name">Sridhar</h3>
+          <p class="team-role">Founder & Creative Technologist</p>
+          <p class="team-bio">Visionary developer and automation specialist focused on building AI-powered digital products, modern web experiences, and scalable business solutions for the future.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#0a1a3a,#1a3a7a)">👨‍🚀</div>
+        <div class="team-info">
+          <h3 class="team-name">Jagan</h3>
+          <p class="team-role">Co-Founder & SaaS Architect</p>
+          <p class="team-bio">Passionate about creating high-performance SaaS platforms, intelligent systems, and next-generation web applications with clean scalable architecture.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#3a0a3a,#7a1a7a)">👩‍💼</div>
+        <div class="team-info">
+          <h3 class="team-name">Priya</h3>
+          <p class="team-role">Chief Executive Officer</p>
+          <p class="team-bio">Leading Velora Tech Solutions with a strong focus on innovation, digital transformation, and building future-ready technology experiences.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#0a3a0a,#1a7a1a)">👨‍💻</div>
+        <div class="team-info">
+          <h3 class="team-name">Sanjay</h3>
+          <p class="team-role">Lead Developer</p>
+          <p class="team-bio">Specialized in modern web technologies, frontend systems, and performance-driven development for fast and elegant digital products.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-4">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#3a3a0a,#7a7a1a)">👩‍💼</div>
+        <div class="team-info">
+          <h3 class="team-name">Yalelni</h3>
+          <p class="team-role">Accounts & Operations Manager</p>
+          <p class="team-bio">Managing financial operations, business processes, and organizational workflows with precision, reliability, and strategic coordination.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="section-alt">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:flex-start" class="about-grid">
+      <div>
+        <p class="section-label reveal">Our Journey</p>
+        <h2 class="section-title reveal reveal-delay-1">From a small studio<br>to a global force.</h2>
+        <p style="font-size:17px;color:var(--gray-600);line-height:1.7;margin-top:16px" class="reveal reveal-delay-2">Crafting intelligent, elegant digital products from our Salem headquarters to clients worldwide.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-title">Founded in Salem, India</div>
+          <p class="timeline-desc">Established Velora Tech Solutions to bridge the gap between high-end Apple-style design and state-of-the-art AI automation capabilities.</p>
+        </div>
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-title">The Future Starts Now</div>
+          <p class="timeline-desc">Expanding our product line with robust SaaS solutions, enterprise-grade AI chatbots, and bespoke web platforms for global clients.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div style="position:relative;z-index:2">
+    <h2 class="cta-title reveal">Join us in building<br>the future.</h2>
+    <p class="cta-sub reveal reveal-delay-1">Whether you want to work with us or join our team — we'd love to hear from you.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="reveal reveal-delay-2">
+      <a href="contact.html" class="btn-primary">Start a Project →</a>
+      <a href="internship.html" class="btn-secondary">Explore Internships</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="logo.png" alt="Velora Tech Solutions" width="1024" height="1024" decoding="async"><span class="nav-logo-text"><span class="brand-velora">Velora</span> <span class="brand-tech">Tech</span> <span class="brand-solutions">Solutions</span></span></a>
+        <p>Crafting intelligent, elegant digital experiences for the next era of technology.</p>
+        <div class="social-links" style="margin-top:24px">
+          <a href="https://x.com/Veloratech_cbe" class="social-link" target="_blank" rel="noopener noreferrer">𝕏</a><a href="https://www.linkedin.com/in/velora-tech-solutions-265816410/" class="social-link" target="_blank" rel="noopener noreferrer">in</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html#ai">AI Automation</a></li><li><a href="services.html#saas">SaaS Development</a></li><li><a href="services.html#web">Website Design</a></li><li><a href="services.html#mobile">Mobile Apps</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="internship.html">Careers & Internships</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="mailto:veloratechsolutions.gov@gmail.com">veloratechsolutions.gov@gmail.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025-2026 Velora Tech Solutions. All rights reserved.</p>
+      <p style="font-size:13px;color:var(--gray-400)">Crafted with precision.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="notification" id="notification"></div>
+<script src="main.js" defer></script>
+</body>
+</html>
